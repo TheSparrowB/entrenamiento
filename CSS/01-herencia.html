@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HERENCIA</title>
+
+        <style>
+            /* CON ESTO, TODOS LOS ELEMENTOS DENTRO DEL BODY HEREDARÁN EL TIPO DE FUENTE */
+            body {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            .container {
+                font-size: 28px;
+                border: 8px solid rgb(6, 90, 122);
+                padding: 7px 5px;
+            }
+
+            .container div {
+                color: rgb(5, 145, 201);
+                font-size: 20px;
+                margin-bottom: 4px;
+            }
+
+            /* PODEMOS VER QUE EL VALOR "initial", ASIGNA LOS VALORES SEGÚN EL NAVEGADOR, COMO EL VALOR
+                INICIAL DEL BORDE NO EXISTE, NO APARECE NADA, SIN EMBARGO, EL DEL "font-family" Y
+                EL "color" SÍ */
+            div.child1 {
+                border: initial;
+                color: initial;                
+                font-family: initial;
+
+                padding: inherit;
+            }
+
+            /* EL VALOR "inherit" NOS SIRVE MÁS QUE TODO PARA APLICAR DE FORMA FORZOSA LAS HERENCIAS
+                QUE NO SE HEREDAN DE FORMA NORMAL, EN ESTE CASO, COMO EL "BORDE" */
+            div.child2 {
+                font-size: inherit;
+                border: inherit;
+
+                padding: inherit;
+            }
+
+            /* EL VALOR "unset" PUEDE ACTUAR COMO "initial" o "inherit", SI LA PROPIEDAD EXISTE, SERÁ COMO
+                "inherit", SI NO, SERÁ COMO INITIAL */
+            div.child3 {
+                color: unset;           /* COMO EL COLOR NO EXISTE EN EL PADRE, SE LE DA NEGRO */
+                font-size: unset;       /* SE LE APLICA EL TAMAÑO DE FUENTE DEL PADRE */
+
+                padding: inherit;
+            }
+        </style>
+    </head>
+
+
+
+
+
+    <body>
+        <h1>HERENCIA DE ESTILOS</h1>
+        <p>
+            Existen algunas propiedades que se pueden heredar de sus padres. Por ejemplo,
+            la propiedad <strong>"font-family"</strong> es heredable, sin embargo, la propiedad
+            <strong>"border"</strong> no lo es y tiene un comportamiento particular. 
+        </p>
+
+        <section class="container">
+            <div class="child1" style="font-weight: 600;">
+                Soy el texto de prueba.
+            </div>
+
+            <div class="child2">
+                Soy el texto de prueba.
+            </div>
+
+            <div class="child3">
+                Soy el texto de prueba.
+            </div>
+        </section>
+    </body>
+</html>
+

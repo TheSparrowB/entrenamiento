@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DISPLAY</title>
+    </head>
+
+    <body>
+        <section>
+            <header>
+                <h1>DISPLAY</h1>
+            </header>
+
+            La propiedad display es una forma de poder ordenar los elementos HTML. Asimismo, está
+            propiedad también puede definir otros aspectos, como por ejemplo, las dimensiones.
+        </section>
+
+
+        <style>
+            span {
+                color: green;
+                width: 100px;
+                height: 500px;
+                padding: 100px 120px;
+                margin-bottom: 100px;
+            }
+
+            strong {
+                color: brown;
+                width: 100px;
+                height: 500px;
+                margin-bottom: 100px;
+            }
+
+            a {
+                color: rgb(177, 44, 177);
+                width: 100px;
+                height: 500px;
+                margin-bottom: 100px;
+            }
+
+            em {
+                width: 100px;
+                height: 500px;
+                margin-bottom: 100px;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo</h3>
+            </header>
+            
+            <span>
+                Este es un elemento <strong>"span"</strong>, y debido a que por defecto tiene la propiedad 
+                <strong>"display: inline"</strong> no se le podrá cambiar el tamaño ni la anchura. Asimismo,
+                propiedades como el padding, margin, etc. funcionarán de forma rara, pero, otras propiedades, 
+                como el color, tamaño de la fuente, etc. funcionarán de forma normal.
+            </span>
+            <br>
+            <br>
+            <strong>Soy un elemento "strong" y también funciono en línea.</strong>
+            <br>
+            <br>
+            <a>Soy un <b>anchor</b>, y también tengo la propiedad de mostrarme en línea.</a>
+            <br>
+            <br>
+            <em>
+                Soy un elemento <b>"em"</b>, soy el hermano menor de <b>"strong"</b> y también soy un elemento
+                en línea.
+            </em>
+        </section>
+
+        <br>
+        <br>
+        <hr>
+        <br>
+
+        <section>
+            <header>
+                <h3>Modelo de la caja</h3>
+            </header>
+
+            Si bien, algunos elementos se pueden mostrar "en línea", existen otros valores para la propiedad 
+            "display" que pueden cambiar la forma de mostrar un elemento. En este caso veremos el modelo 
+            de la caja.
+        </section>
+
+
+        <style>
+            .contenedor {
+                width: 150px;
+                height: 150px;
+                background-color: rgb(212, 106, 30);
+                padding: 10px;
+                border: 10px rgb(80, 40, 11) solid;
+                margin: 10px;
+                box-sizing: content-box;    /* VALOR POR DEFECTO */
+            }
+
+            .contenedor1{
+                width: 150px;
+                height: 150px;
+                background-color: rgb(212, 106, 30);
+                padding: 10px;
+                border: 10px rgb(80, 40, 11) solid;
+                margin: 10px;
+                box-sizing: border-box;
+            }
+        </style>
+
+        <section>
+            <div class="contenedor">
+                Esta caja solo tiene ancho y alto de 150px básico. Sin embargo, el <strong>padding y el 
+                border</strong> también afectan el tamaño resultando en un cuadrado de 190px.
+            </div>
+
+            <p>
+                Esto sucede básicamente porque los elementos en bloque tienen una propiedad implícita, llamada
+                <b>"box-sizing"</b>, el cual tiene un valor de <b>"content-box"</b> por defecto. Haciendo que 
+                al darle un border y un padding a este tipo de elementos, no se respete el tamaño y el ancho.
+            </p>
+
+            <div class="contenedor">
+                <b>"box-sizing: content-box"</b>
+                <br>
+                <br>
+                Tamaño inicial: 150px
+                Tamaño final: 190px
+            </div>
+            <div class="contenedor1">
+                <b>"box-sizing: border-box"</b>
+                <br>
+                Tamaño inicial: 150px
+                <br>
+                Tamaño final: 150px
+            </div>
+        </section>
+
+
+        <br>
+        <br>
+
+        <section>
+            <header>
+                <h3>Overflow</h3>
+            </header>
+
+            Muchas veces podría pasar que se crean elementos, sin embargo su contenido se salga
+            del contenedor, se desborde. Por ejemplo:
+        </section>
+        
+        <br>
+
+        <style>
+            .contenedor2 {
+                background-color: peachpuff;
+                font-size: 43.5px;
+                width: 150px;
+                height: 150px;
+                border: 3px solid black;
+                overflow: visible;      /* VALOR POR DEFECTO */
+            }
+
+            .contenedor3 {
+                background-color: peachpuff;
+                font-size: 43.5px;
+                width: 150px;
+                height: 150px;
+                border: 3px solid black;
+                overflow: hidden;
+            }
+
+            .contenedor3-5 {
+                background-color: peachpuff;
+                font-size: 43.5px;
+                width: 150px;
+                height: 150px;
+                border: 3px solid black;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .contenedor4 {
+                background-color: peachpuff;
+                font-size: 38px;
+                width: 150px;
+                height: 150px;
+                border: 3px solid black;
+                overflow: scroll;
+            }
+
+            .contenedor5 {
+                background-color: peachpuff;
+                font-size: 38px;
+                width: 150px;
+                height: 150px;
+                border: 3px solid black;
+                overflow: auto;
+            }
+        </style>
+        <section>
+            <div class="contenedor2">
+                CSS <br> IS AWESOME
+            </div>
+
+            <p>
+                En este caso, podemos ver que el contenido se está desbordando del "div". Este ocurre
+                gracias a una propiedad denominada "overflow", el cual tiene un valor por defecto de
+                "visible". Sin embargo, existen otros valores para el "overflow".
+            </p>
+
+            <div style="width: 100%; margin-bottom: 10px;">
+                <div class="contenedor3">
+                    CSS <br> IS AWESOME
+                </div>
+                <p>
+                    Este caja tiene el valor del "overflow" como "hidden", es decir, mantiene oculto
+                    todo el contenido desbordado.
+                </p>
+            </div>
+
+            <div style="width: 100%; margin-bottom: 10px;">
+                <div class="contenedor3-5">
+                    CSS <br> IS AWESOME
+                </div>
+                <p>
+                    Este caja tiene el valor del "overflow" como "hidden", es decir, mantiene oculto
+                    todo el contenido desbordado. Sin embargo, este "div" también tiene la propiedad
+                    "text-overflow" como "ellipsis", lo que significa que cuando el contenido textual 
+                    se desborde, se mostrarán 3 puntos.
+                </p>
+            </div>
+            
+            <div style="width: 100%;">
+                <div class="contenedor4">
+                    CSS <br> IS AWESOME
+                </div>
+                <p>
+                    Este caja tiene el valor del "overflow" como "scroll", es decir, muestra scrolls
+                    por si el contenido se desborda o no.
+                </p>
+            </div>
+
+            <div style="width: 100%;">
+                <div class="contenedor5">
+                    CSS <br> IS AWESOME
+                </div>
+                <p>
+                    Este caja tiene el valor del "overflow" como "auto", es decir, dependiendo de si el
+                    contenido se desborda o no, se mostrarán scrolls o no.
+                </p>
+            </div>
+            
+        </section>
+
+    </body>
+</html>

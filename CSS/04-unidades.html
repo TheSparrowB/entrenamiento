@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UNIDADES</title>
+    </head>
+
+
+
+    <body>
+        <section>
+            <header>
+                <h1>UNIDADES</h1>
+            </header>
+
+            Existen diversos tipo de unidades en el estilaje CSS. Una de las unidades más utilizadas
+            son los píxeles, sin embargo, no es su recomendable su uso del todo porque podría existir
+            un problema cuando hablamos de la resolución de las pantallas y es que, si bien los píxeles
+            son considerados como unidades absolutas, son relativas al tamaño de la pantalla del 
+            dispositivo.
+        </section>
+
+        <br>
+
+        <style>
+            .contenedorPx {
+                width: 120px;
+                height: 120px;
+                background-color: red;
+            }
+
+            .contenedorPr {
+                width: 50%;
+                height: 50%;
+                background-color: green;
+            }
+
+            .contenedorVp {
+                width: 50vw;                /*VIEW WIDTH*/
+                height: 20vh;               /*VIEW HEIGHT*/
+                background-color: blue;
+            }
+        </style>
+        
+        <p>Acá podemos ver un cuadrado de 120X120 píxeles</p>
+        <div class="contenedorPx"></div>
+
+
+        <br>
+
+
+        <p>
+            Acá se supone que se podría ver un cuadrado de tamaño 50%X50%, sin embargo, 
+            no se aprecia nada.
+        </p>
+        <div class="contenedorPr"></div>
+        <p>
+            Y eso es porque el porcentaje es una unidad relativa y no absoluta, por lo que 
+            depende enteramente de las dimensiones del padre. Entonces, si ubicamos ese cuadrado
+            dentro de otro con dimensiones definidas, debería de poder verse, tal como en el ejemplo.
+        </p>
+        <div class="contenedorPx">
+            <div class="contenedorPr"></div>
+        </div>
+
+
+        <br>
+
+        <p>
+            Existe otra unidad llamada "viewport", la cual es relativa al tamaño de la vista de la página.
+            En este caso, el tamaño del cuadro es de 50VWX20VH. Es decir, el 50% del ancho de la página por 
+            el 20% de la altura de la página.
+        </p>
+        <div class="contenedorVp"></div>
+
+
+
+        <br>
+        <br>
+
+        Existen diversas unidades absolutas y relativas. A continuación una tabla con las unidades.
+        <br>
+
+        <style>
+            .contenedor {
+                width: 95vw;
+                overflow: auto;
+            }
+
+            .tablita {
+                border-collapse: collapse;
+                min-width: 600px;
+            }
+
+            .tablita th {
+                background-color: rgb(168, 168, 168);
+            }
+
+            .tablita th, td {
+                border: 1px solid black;
+                padding: 3px 5px;
+            }
+
+            .tablita colgroup col:nth-child(2n+1){
+                width: 15%;
+            }
+
+            .tablita colgroup col:nth-child(2n){
+                width: 35%;
+            }
+
+            .tablita tr td:nth-child(2n+1) {
+                text-align: center;
+            }
+        </style>
+
+        <div class="contenedor">
+            <table class="tablita">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+
+                <tr>
+                    <th>Unidad Relativa</th>
+                    <th>Descripción</th>
+                    <th>Unidad Absoluta</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>em</td>
+                    <td>Es relativo al tamaño de la fuente actual (Variable de acuerdo al font-size).</td>
+                    <td>cm</td>
+                    <td>Centímetros</td>
+                </tr>
+                <tr>
+                    <td>ch</td>
+                    <td>Es relativo al ancho del caracter cero "0" (Variable de acuerdo al font-size).</td>
+                    <td>mm</td>
+                    <td>Milímetros</td>
+                </tr>
+                <tr>
+                    <td>rem</td>
+                    <td>Es relativo al tamaño de la fuente de la página raíz, no es heredable.</td>
+                    <td>in</td>
+                    <td>Pulgadas (2.54cm)</td>
+                </tr>
+                <tr>
+                    <td>vw</td>
+                    <td>Es relativo al ancho de la ventana del browser.</td>
+                    <td>px</td>
+                    <td>Píxeles (1/96in). Aunque considerado absolutos, son relativos a la pantalla del dispositivo.</td>
+                </tr>
+                <tr>
+                    <td>vh</td>
+                    <td>Es relativo al alto de la ventana del browser.</td>
+                    <td>pt</td>
+                    <td>Puntos (1/72in)</td>
+                </tr>
+                <tr>
+                    <td>%</td>
+                    <td>Es relativo a las dimensiones del elemento padre.</td>
+                    <td>pc</td>
+                    <td>Picas (12pt)</td>
+                </tr>
+            </table>
+        </div>
+        
+    </body>
+</html>

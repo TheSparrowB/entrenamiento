@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Z-INDEX</title>
+    </head>
+
+
+
+    <body>
+        <section>
+            <header>
+                <h1>Z-INDEX</h1>
+            </header>
+
+            En un documento HTML existe un concepto llamado "apilamiento", es decir, los elementos
+            dentro del HTML se pueden mostrar y sobreponer unos entre otros. Los primeros elementos
+            en ser colocados ocuparán los primeros órdenes de apilamiento por defecto, mientras que
+            los últimos irán sobreponiéndose si el caso se da.
+        </section>
+
+
+
+        <style>
+            .contenedor {
+                position: relative;
+                height: 220px;
+                width: 400px;
+                background-color: antiquewhite;
+            }
+
+            .ejemplo1 {
+                position: absolute;
+                height: 100px;
+                width: 100px;
+                background-color: rgb(27, 77, 12);
+                top: 10px;
+                left: 10px;
+            }
+
+            .ejemplo2 {
+                position: absolute;
+                height: 100px;
+                width: 100px;
+                background-color: rgb(71, 155, 46);
+                top: 40px;
+                left: 50px;
+            }
+
+            .ejemplo3 {
+                position: absolute;
+                height: 100px;
+                width: 100px;
+                background-color: rgb(113, 189, 90);
+                top: 70px;
+                left: 90px;
+            }
+
+            .ejemplo4 {
+                position: absolute;
+                height: 100px;
+                width: 100px;
+                background-color: rgb(152, 202, 137);
+                top: 100px;
+                left: 130px;
+            }
+
+            .ejemplo5 {
+                position: absolute;
+                height: 100px;
+                width: 100px;
+                background-color: rgb(208, 236, 199);
+                top: 90px;
+                left: 20px;
+            }
+
+            div p {
+                margin: auto;
+                text-align: center;
+                font-size: 25px;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo</h3>
+            </header>
+
+            <p>
+                Los cuadrados verdosos tienen un número cada uno. Estos números representan el orden de
+                cuando han sido implementados.
+            </p>
+
+            <div class="contenedor">
+                <div class="ejemplo1">
+                    <p>1</p>
+                </div>
+
+                <div class="ejemplo2">
+                    <p>2</p>
+                </div>
+
+                <div class="ejemplo3">
+                    <p>3</p>
+                </div>
+
+                <div class="ejemplo4">
+                    <p>4</p>
+                </div>
+
+                <div class="ejemplo5">
+                    <p>5</p>
+                </div>
+            </div>
+        </section>
+
+        <br>
+
+
+        <p>
+            Sin embargo, este apilamiento no sucede de forma automática, sino, que algunas 
+            propiedades especiales deberían de estar presentes. Las cuales son:
+
+            <ul>
+                <li>
+                    Elementos con <strong>"position"</strong> igual "absolute", "relative" o "fixed".
+                </li>
+                <li>
+                    Elementos <strong>flex</strong>.
+                </li>
+                <li>
+                    Elementos con <strong>"opacity"</strong> menor a 1.
+                </li>
+                <li>
+                    Elementos con <strong>"transform"</strong> distinto de "none".
+                </li>
+                <li>
+                    Elementos con <strong>"mix-blend-mode"</strong> distinto de "normal".
+                </li>
+                <li>
+                    Elementos con <strong>"filter"</strong> distinto de "none".
+                </li>
+                <li>
+                    Elementos con <strong>"perspective"</strong> distinto de "none".
+                </li>
+                <li>
+                    Elementos con <strong>"isolation"</strong> igual de "isolate".
+                </li>
+            </ul>
+        </p>
+
+        <br>
+
+
+
+        <style>
+            .contenedor2 {
+                height: 270px;
+                width: 400px;
+                background-color: antiquewhite;
+                padding: 10px 140px;
+                box-sizing: border-box;
+            }
+
+            .contenedor2 div:first-child {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(161, 15, 15);
+                text-align: center;
+                z-index: 1;
+            }
+
+            .contenedor2 div:not(:first-child):not(:last-child) {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(48, 128, 24);
+                margin-top: -30px;
+                text-align: center;
+                z-index: 3;
+            }
+
+            .contenedor2 div:last-child {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(226, 143, 18);
+                margin-top: -30px;
+                text-align: center;
+                z-index: 2;
+            }
+        </style>
+
+        <section>
+            <p>
+                Para poder verificar mejor este caso, veamos el siguiente escenario. El cuadro rojo
+                tiene un <b>"z-index"</b> de 1, mientras que el cuadro verde tiene un <b>"z-index"</b> 
+                de 3 y, finalmente el cuadro naranja tiene un <b>"z-index"</b> de 2. Entonces, lo
+                lógico es que el cuadro verde se superponga ante todos los cuadros, pero, como
+                los elementos no se encuentran posicionados con un valor diferente a "static", 
+                el <b>"z-index"</b> no funciona. 
+            </p>
+
+            <div class="contenedor2">
+                <div>1<br>z-index: 1</div>
+                <div>2<br>z-index: 3</div>
+                <div>3<br>z-index: 2</div>
+            </div>
+        </section>
+
+        <br>
+
+        <style>
+            .contenedor3 {
+                height: 270px;
+                width: 400px;
+                background-color: antiquewhite;
+                padding: 10px 140px;
+                box-sizing: border-box;
+            }
+
+            .contenedor3 div:first-child {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(161, 15, 15);
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .contenedor3 div:not(:first-child):not(:last-child) {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(48, 128, 24);
+                margin-top: -35px;
+                text-align: center;
+                position: relative;
+                z-index: 5;
+            }
+
+            .contenedor3 div:last-child {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(226, 143, 18);
+                margin-top: -35px;
+                text-align: center;
+                position: relative;
+                z-index: 2;
+            }
+        </style>
+
+        <section>
+            <p>
+                Pero, si aplicamos lo mismo, pero incluyendo una propiedad que permita el
+                posicionamiento, entonces el <b>"z-index"</b> sí funcionará.
+            </p>
+
+            <div class="contenedor3">
+                <div>1<br>z-index: 1</div>
+                <div>2<br>z-index: 3</div>
+                <div>3<br>z-index: 2</div>
+            </div>
+        </section>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>POSITION</title>
+    </head>
+
+
+
+    <body>
+        <section>
+            <header>
+                <h1>POSITION</h1>
+            </header>
+
+            Los elementos se posicionan por defecto de <strong>forma estática (static)</strong>, es decir, se colocan de acuerdo
+            al orden donde se les crea y se van apilando hacia abajo.
+        </section>
+
+        <br>
+
+
+        <style>
+            div { 
+                padding: 10px 5px;
+                box-sizing: border-box;
+            }
+
+            .contenedor01 {
+                background-color: rgb(201, 15, 52);
+                width: 80px;
+                height: 80px;
+                position: fixed;
+                right: 15px;
+                top: 260px;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo (FIXED)</h3>
+            </header>
+
+            <p>
+                El fixed es un valor de la propiedad "position" en donde la posición del elemento
+                está ligado a las coordenadas que se le den. Estas coordenadas no serán relativas
+                al elemento padre ni al documento, sino a la pantalla (viewport).
+            </p>
+
+            <div class="seccion">
+                <div class="contenedor01">
+                    NADIE ME MOVERÁ
+                </div>
+            </div>
+            
+
+        </section>
+
+        <br>
+
+        <style>
+            .seccion {
+                border: 5px solid black;
+                width: 200px;
+                height: 200px;
+                box-sizing: border-box;
+            }
+
+            .contenedor {
+                background-color: rgb(201, 15, 52);
+                width: 80px;
+                height: 80px;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo (STATIC)</h3>
+            </header>
+
+            <p>
+                Acá se tiene una caja grande que contiene a su vez otras dos cajas más chiquitas. Podemos
+                ver que se apilan hacia abajo.
+            </p>
+
+            <section class="seccion">
+                <div class="contenedor">
+                    Bloque 01
+                </div>
+                <div class="contenedor">
+                    Bloque 02
+                </div>
+            </section>
+        </section>
+
+        
+
+        <br>
+
+        <style>
+            .contenedor11 {
+                background-color: rgb(201, 15, 52);
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                left: 5px;
+                top: 910px;
+            }
+
+            .contenedor12 {
+                background-color: rgb(139, 56, 73);
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                left: 70px;
+                top: 990px;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo (ABSOLUTE)</h3>
+            </header>
+
+            <p>
+                Acá se tiene una caja grande que contiene a su vez otras dos cajas más chiquitas. Gracias
+                a la propiedad "absolute" se les puede dar coordenadas con respecto a la vista general (root).
+            </p>
+
+            <section class="seccion">
+                <div class="contenedor11">
+                    Bloque 01
+                </div>
+                <div class="contenedor12">
+                    Bloque 02
+                </div>
+            </section>
+        </section>
+
+        <br>
+
+
+        <style>
+            .seccion2 {
+                border: 5px solid black;
+                width: 200px;
+                height: 200px;
+                box-sizing: border-box;
+                position: relative;
+            }
+
+            .contenedor21 {
+                background-color: rgb(201, 15, 52);
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                left: 15px;
+                top: 10px;
+            }
+
+            .contenedor22 {
+                background-color: rgb(139, 56, 73);
+                width: 80px;
+                height: 80px;
+                position: absolute;
+                
+                /*top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;*/
+
+                margin: auto;
+                inset: 0px; /* INSET RESUME LOS VALORES DEL TOP, LEFT, RIGHT Y BOTTOM */
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo (RELATIVE)</h3>
+            </header>
+
+            <p>
+                Acá se tiene una caja grande que contiene a su vez otras dos cajas más chiquitas. Gracias
+                a la propiedad "absolute" del padre se les puede dar coordenadas con respecto al elemento
+                padre que tiene "relative".
+            </p>
+
+            <section class="seccion2">
+                <div class="contenedor21">
+                    Bloque 01
+                </div>
+                <div class="contenedor22">
+                    Bloque 02
+                    <br>
+                    <b>Centrado</b>
+                </div>
+            </section>
+        </section>
+
+
+        <br>
+
+
+        <style>
+            .seccion4 {
+                border: 5px solid black;
+                width: 200px;
+                height: 1400px;
+                box-sizing: border-box;
+                margin-bottom: 700px;
+            }
+
+            .contenedor41 {
+                background-color: rgb(201, 15, 52);
+                width: 80px;
+                height: 80px;
+                position: sticky;
+                left: 5px;
+                top: 10px;
+            }
+
+            .contenedor42 {
+                background-color: rgb(139, 56, 73);
+                width: 80px;
+                height: 80px;
+                position: sticky;
+                left: 65px;
+                top: 250px;
+            }
+
+
+            .contenedor43 {
+                background-color: rgb(121, 15, 36);
+                width: 80px;
+                height: 80px;
+                position: sticky;
+                left: 500px;
+                top: 700px;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h3>Ejemplo (STICKY)</h3>
+            </header>
+
+            <p>
+                El valor "sticky" tiene una propiedad muy particular. Los hijos buscan la forma de 
+                mantenerse en las coordenadas "top" y "left" que se les asigne con referencia al
+                viewport pero dentro del padre. Conforme el padre se vaya moviendo, los hijos también 
+                lo irán haciendo.
+            </p>
+
+            <section class="seccion4">
+                <div class="contenedor41">
+                    Bloque 01
+                </div>
+                <div class="contenedor42">
+                    Bloque 02
+                </div>
+                <div class="contenedor43">
+                    Bloque 03
+                </div>
+            </section>
+        </section>
+        
+
+    </body>
+</html>

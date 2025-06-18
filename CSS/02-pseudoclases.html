@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PSEUDOCLASES</title>
+
+        <!-- VALE LA PENA DECIR QUE EL ELEMENTO "<style>" SE PUEDE AGREGAR DONDE SEA, SIN EMBARGO,
+            EL ESTÁNDAR INDICA QUE SE DEBERÍA DE AGREGAR SOLO EN EL ELEMENTO HEAD -->
+    </head>
+
+
+    <body>
+        <style>
+            button {
+                color: white;
+                font-weight: 600;
+                background-color: rgb(170, 3, 3);
+                padding: 10px 15px;
+                border: none;
+                border-radius: 8px;
+            }
+
+            /* EL HOVER REPRESENTA AL EVENTO CUANDO EL CURSOR SE PONE SOBRE EL ELEMENTO */
+            button:hover {
+                background-color: rgb(253, 11, 11);
+            }
+
+            /* EL ACTIVE REPRESENTA AL EVENTO CUANDO SE TIENE SELECCIONADO UN ELEMENTO (CON CLICK) */
+            button:active{
+                background-color: rgb(233, 119, 119);
+            }
+
+            /* EL FOCUS REPRESENTA AL EVENTO CUANDO SE TIENE SELECCIONADO UN ELEMENTO (SIN CLICK) */
+            input:focus {
+                outline: 3px solid green;
+            }
+
+            /* FIRST CHILD SOLO AFECTA AL PRIMER HIJO */
+            li:first-child {
+                color: rgb(2, 112, 2);
+            }
+
+            /* LAST CHILD SOLO AFECTA AL ÚLTIMO HIJO */
+            li:last-child {
+                color: rgb(212, 139, 2);
+            }
+
+            /* ESTE ES OTRO EJEMPLO CON DIVS */
+            .divPadre {
+                width: 100%;
+            }
+
+            .divPadre div {
+                background-color: rgb(31, 31, 124);
+                color: white;
+                width: 10%;
+                float: left;
+                text-align: center;
+                padding: 4px 0px;
+            }
+
+            .divPadre div:first-child {
+                background-color: brown;
+                color: white;
+            }
+
+            .divPadre div:nth-child(2n){
+                outline: 2px solid rgb(2, 2, 88);
+            }
+        </style>
+
+        <section style="margin-bottom: 40px;">
+            <header>
+                <h1>PSEUDOCLASES</h1>
+            </header>
+
+                Existen unos elementos dentro del CSS llamados pseudoclases, estos ayudan a controlar
+                el estilo de los elementos HTML de acuerdo a diversos eventos.
+        </section>
+
+
+        <section>
+            <header>
+                <h3>Ejemplos</h3>
+            </header>
+
+            <input type="text" name="txtPrueba" id="txtPrueba">
+            <button name="btnClick">CLICK AQUI</button>
+
+            <br>
+
+            <ul>
+                <li>Ranas</li>
+                <li>Chanchitos</li>
+                <li>Águilas</li>
+                <li>Loros</li>
+                <li>Delfines</li>
+                <li>Pinzones</li>
+                <li>Platys</li>
+            </ul>
+
+
+            <div class="divPadre">
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+                <div>UNO</div>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>       
+
+
+        <style>
+            /* 
+                PODEMOS CAMBIAR EL ESTILO DE UNA CLASE DENTRO DE OTRA, EN ESTE CASO
+                LA CLASE "enfasis" PUEDE COMPORTARSE DE FORMA DISTINTA DEPENDIENDO
+                DEL OBJETO DONDE SE ENCUENTRE
+            */
+            .primero .enfasis {
+                color: rgb(1, 116, 1);
+            }
+
+            .segundo .enfasis {
+                color: rgb(202, 132, 2);
+            }
+
+
+            /*
+                TOMAR EN CUENTA QUE EXISTEN ALGUNAS PROPIEDADES QUE SE PUEDEN ACUMULARSE,
+                COMO ES EL CASO DE LA OPACIDAD, AL ESTAR DENTRO DEL PRIMER "listaElemento"
+                SU VISIBILIDAD SE REDUCE EN 20%, SIN EMBARGO, AL ESTAR DENTRO DE OTRO "listaElemento"
+                AL TENER UNA BASE 80%, SE LE VUELVE A DESCONTAR UN 20% DE ESE TOTAL.
+
+                HACIENDO QUE LOS SUBELEMENTOS SEAN MÁS OPACOS.
+            */
+            .listaElemento {
+                font-size: 30px;
+            }
+
+            .listaElemento li {
+                color: initial;
+                opacity: 80%;
+            }
+        </style>
+
+        <section>
+            <header>
+                <h2>Selectores Combinados</h2>
+            </header>
+
+            También existen formas de poder jugar con los selectores.
+        </section>
+        <br>
+
+        <section>
+            <fieldset>
+                <p class="primero">
+                    Las ranitas son animalitos <strong class="enfasis">curiosos</strong> y en su
+                    variedad existen diversos <strong class="enfasis">colores</strong>.
+                </p>
+
+                <p class="segundo">
+                    Las ranitas son animalitos <strong class="enfasis">curiosos</strong> y en su
+                    variedad existen diversos <strong class="enfasis">colores</strong>.
+                </p>
+            </fieldset>
+            
+
+            <br>
+
+            También hay que tener cuidado con los elementos en cascada, puesto que algunas propiedades
+            son acumulables. En este caso, cada lista tiene una opacidad del 80%, sin embargo, la 
+            lista hija tiene letras más claras porque justamente las dos opacidades se complementan.
+
+            <ul class="listaElemento">
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+                <li>Elemento 3</li>
+                <li>Elemento 4</li>
+                <li>
+                    <ul class="listaElemento">
+                        <li>SubElemento 1</li>
+                        <li>SubElemento 2</li>
+                        <li>SubElemento 3</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <br>
+            <br>
+
+            <style>
+                .articulo1 {
+                    font-size: 12px;
+                    color: #a1a1a1;
+                }
+
+                .articulo1 p {
+                    font-size: 24px;
+                    color: rgb(29, 29, 29);
+                }
+            </style>
+
+            Existe también otro escenario de hijos anidados, en donde dentro de un elemento con hijos
+            existen otros elementos con hijos que utilizan la misma clase de los hijos del primer elemento.
+            Por ejemplo:
+
+            <br>
+            <br>
+
+            <fieldset>
+                <article class="articulo1">
+                    <p>
+                        Este es un artículo de prueba. Acá se verá toda la información mediante un párrafo.
+                    </p>
+
+                    <footer>
+                        <p>
+                            Este es el pie de página que contendrá únicamente información adicional pero corta.
+                        </p>
+                    </footer>
+                </article>
+            </fieldset>
+
+            <br>
+
+            Aquí podemos ver que la clase "articulo1 p" anda afectando a todos los párrafos dentro del
+            artículo. Incluso aquellos que no son hijos directos del artículo. Pero, <strong>¿qué pasaría si
+            solo queremos que el estilo aplique a los hijos directos?</strong>
+
+            <br>
+            <br>
+
+            <style>
+                .articulo2 {
+                    font-size: 12px;
+                    color: #a1a1a1;
+                }
+
+                .articulo2 > p {
+                    font-size: 24px;
+                    color: rgb(29, 29, 29);
+                }
+            </style>
+
+            <fieldset>
+                <article class="articulo2">
+                    <p>
+                        Este es un artículo de prueba. Acá se verá toda la información mediante un párrafo.
+                    </p>
+
+                    <footer>
+                        <p>
+                            Este es el pie de página que contendrá únicamente información adicional pero corta.
+                        </p>
+                    </footer>
+                </article>
+            </fieldset>
+
+            <br>
+
+            <h3>Operadores</h3>
+
+            Para ello, aplicamos el operador ">" que indica que solo se aplicará al primer nivel dentro de la
+            jerarquía de elementos.
+
+            Pero, además de poder estilar hijos, también podríamos estilar hermanos. Para eso existe el operador
+            "~", que aplica estilos a TODOS los hermanos que sigan después de un elemento "X".
+
+            <style>
+                .parrafito1 ~ span {
+                    color: rgb(207, 5, 5);
+                }
+            </style>
+
+            <br>
+            <br>
+
+            <fieldset>
+                <article>
+                    <span>Este texto es negro como el Memín porque está antes del párrafo.</span>
+                    <p class="parrafito1">Mi párrafo es mi alma. Este es el párrafo hermano de los span.</p>
+                    <span>
+                        Este span debería de ser de color rojo porque es hermano del párrafo.
+                    </span>
+
+                    <h4>Mi sección</h4>
+                    <span>
+                        En este caso, no interesa cuántos elementos se atraviesen entre el párrafo
+                        y los span hermanos, todos los spans después del párrafo serán de color rojo.
+                    </span>
+
+                    <table>
+                        <li>Acá</li>
+                        <li>hay una</li>
+                        <li>lista <span>con un span dentro pero que no es hermano y por eso es negro.</span></li>
+                    </table>
+
+                    <span>
+                        Este último también debería de ser rojo.
+                    </span>
+                </article>
+                <br>
+                <span>
+                    Sin embargo este span no es hermano del párrafo, por lo que debería de seguir
+                    siendo negro.
+                </span>
+            </fieldset>
+
+
+            <br>
+            <br>
+
+            ¿Y si solo se quisiese estilar al hermano que le sigue? Para eso también existe un operador, el
+            cual es el "+".
+
+            <br>
+            <br>
+
+            <style>
+                .parrafito2 + span {
+                    color: rgb(228, 194, 3);
+                }
+            </style>
+
+            <fieldset>
+                <article>
+                    <span>Este texto es negro como el Memín porque está antes del párrafo.</span>
+                    <p class="parrafito2">Mi párrafo es mi alma. Este es el párrafo hermano de los span.</p>
+                    <span>
+                        Este span debería de ser de color rojo porque es hermano del párrafo.
+                    </span>
+
+                    <h4>Mi sección</h4>
+                    <span>
+                        En este caso, no interesa cuántos elementos se atraviesen entre el párrafo
+                        y los span hermanos, todos los spans después del párrafo serán de color rojo.
+                    </span>
+
+                    <table>
+                        <li>Acá</li>
+                        <li>hay una</li>
+                        <li>lista <span>con un span dentro pero que no es hermano y por eso es negro.</span></li>
+                    </table>
+
+                    <span>
+                        Este último también debería de ser rojo.
+                    </span>
+                </article>
+                <br>
+                <span>
+                    Sin embargo este span no es hermano del párrafo, por lo que debería de seguir
+                    siendo negro.
+                </span>
+            </fieldset>
+
+        </section>
+    </body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CASCADA</title>
+
+        <style>
+            /* DECLARAMOS UN ESTILO GENERAL QUE SE DEBERÍA DE APLICAR A TODOS LOS PÁRRAFOS */
+            p {
+                color: rgb(235, 0, 0);
+            }
+
+            p {
+                color: rgb(7, 221, 150);
+            }
+
+            p {
+                color: rgb(1, 112, 1);
+            }
+
+            p:hover {
+                color: rgb(127, 201, 17);
+            }
+        </style>
+    </head>
+
+
+
+    <body>
+        <section>
+            <header>
+                <h1>Gestión de Cascada</h1>
+            </header>
+
+            Existen diversas formas de aplicar un estilo. Y normalmente se aplican de última 
+            posición a primera. Por ejemplo, se han declarado tres estilos para los párrafos,
+            sin embargo, el único set de estilos que toma efecto es el último (color verde).
+            Mientras que los colores <strong>"celeste" y "rojo"</strong> sob obviados porque se encuentran antes
+            y no son tomados en cuenta.
+        </section>
+
+        <br>
+
+        <section>
+            <header>
+                <h3>Ejemplos:</h3>
+            </header>
+
+            <p>Yo soy un párrafo común y corriente, así que soy verde.</p>
+            <p>Yo soy un párrafo común y corriente, pero no soy ni celeste ni rojo.</p>
+            <p>Yo soy un párrafo común y corriente, y es que el verde es el último.</p>
+            <p style="color: rgb(109, 1, 109);">Yo soy un párrafo, pero soy morado porque mi estilo en línea lo define así.</p>
+            <p>Yo soy un párrafo común y corriente, así que soy verde.</p>
+
+            <br>
+
+            => Como se puede apreciar, se pueden sobreescribir los estilos definidos, ya sea por orden
+            de declaración o inclusión en la cabecera del elemento.
+        </section>
+
+        <br>
+        <br>
+        <hr>
+        <br>
+
+
+        <section>
+            <header>
+                <h1>Especificidad</h1>
+            </header>
+
+            Esta es un regla del CSS, que indica que, de acuerdo si el elemento tiene id, clase o algún
+            otro complemento, se le dará prioridad primero al id, luego a la clase y finalmente al resto,
+            en caso no haya ni id ni clase.
+        </section>
+
+        <style>
+            .parrafito {
+                color: rgb(230, 150, 2);
+            }
+
+            .parrafito:hover{
+                color: rgb(224, 224, 8);
+            }
+
+            #parrafito {
+                color: rgb(5, 5, 196);
+            }
+
+            #parrafito:hover {
+                color: rgb(6, 100, 187);
+            }
+
+            .disruptor {
+                color: rgb(190, 2, 2) !important;
+            }
+        </style>
+
+        <section>
+            <p>Yo soy un <strong>párrafo común y corriente</strong>, así que soy verde.</p>
+            <p class="parrafito">Yo soy un <strong>párrafo con clase</strong>, así que seré naranja.</p>
+            <p id="parrafito">Yo soy un <strong>párrafo con ID</strong>, por lo que seré azul.</p>
+            <p>Yo soy un <strong>párrafo común y corriente</strong>, así que soy verde.</p>
+            <p class="parrafito" id="parrafito">Yo soy un <strong>párrafo con clase e ID</strong>, pero soy azul por que le dan preferencia a mi ID.</p>
+        
+            <p class="parrafito disruptor" id="parrafito">Yo soy un <strong>párrafo con clase e ID</strong>, pero soy rojo porque tengo una clase con <strong>!important</strong>.</p>
+            <p class="parrafito" id="parrafito" style="color: rgb(228, 146, 45);">Yo soy un <strong>párrafo con clase, ID y estilo en línea</strong>, pero soy beige porque mi estilo en línea lo dice así.</p>
+            <p class="parrafito disruptor" id="parrafito" style="color: rgb(228, 146, 45);">Yo soy un <strong>párrafo con clase, clase disruptora, ID y estilo en línea</strong>, pero soy rojo porque tengo una clase con <strong>!important</strong>.</p>
+            <p class="parrafito disruptor" id="parrafito" style="color: rgb(228, 146, 45) !important;">Yo soy un <strong>párrafo con clase, clase disruptora, ID y estilo en línea</strong>, pero soy sigo siendo beige a pesar del disruptor porque mi estilo en línea tiene <strong>!important</strong>.</p>
+
+        </section>
+    </body>
+</html>
