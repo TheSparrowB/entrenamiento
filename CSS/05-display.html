@@ -4,6 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DISPLAY</title>
+
+        <style>
+            body p {
+                text-align: justify;
+            }
+        </style>
     </head>
 
     <body>
@@ -51,11 +57,11 @@
             <header>
                 <h3>Ejemplo</h3>
             </header>
-            
+
             <span>
-                Este es un elemento <strong>"span"</strong>, y debido a que por defecto tiene la propiedad 
+                Este es un elemento <strong>"span"</strong>, y debido a que por defecto tiene la propiedad
                 <strong>"display: inline"</strong> no se le podrá cambiar el tamaño ni la anchura. Asimismo,
-                propiedades como el padding, margin, etc. funcionarán de forma rara, pero, otras propiedades, 
+                propiedades como el padding, margin, etc. funcionarán de forma rara, pero, otras propiedades,
                 como el color, tamaño de la fuente, etc. funcionarán de forma normal.
             </span>
             <br>
@@ -82,8 +88,8 @@
                 <h3>Modelo de la caja</h3>
             </header>
 
-            Si bien, algunos elementos se pueden mostrar "en línea", existen otros valores para la propiedad 
-            "display" que pueden cambiar la forma de mostrar un elemento. En este caso veremos el modelo 
+            Si bien, algunos elementos se pueden mostrar "en línea", existen otros valores para la propiedad
+            "display" que pueden cambiar la forma de mostrar un elemento. En este caso veremos el modelo
             de la caja.
         </section>
 
@@ -112,13 +118,13 @@
 
         <section>
             <div class="contenedor">
-                Esta caja solo tiene ancho y alto de 150px básico. Sin embargo, el <strong>padding y el 
+                Esta caja solo tiene ancho y alto de 150px básico. Sin embargo, el <strong>padding y el
                 border</strong> también afectan el tamaño resultando en un cuadrado de 190px.
             </div>
 
             <p>
                 Esto sucede básicamente porque los elementos en bloque tienen una propiedad implícita, llamada
-                <b>"box-sizing"</b>, el cual tiene un valor de <b>"content-box"</b> por defecto. Haciendo que 
+                <b>"box-sizing"</b>, el cual tiene un valor de <b>"content-box"</b> por defecto. Haciendo que
                 al darle un border y un padding a este tipo de elementos, no se respete el tamaño y el ancho.
             </p>
 
@@ -150,7 +156,7 @@
             Muchas veces podría pasar que se crean elementos, sin embargo su contenido se salga
             del contenedor, se desborde. Por ejemplo:
         </section>
-        
+
         <br>
 
         <style>
@@ -228,11 +234,11 @@
                 <p>
                     Este caja tiene el valor del "overflow" como "hidden", es decir, mantiene oculto
                     todo el contenido desbordado. Sin embargo, este "div" también tiene la propiedad
-                    "text-overflow" como "ellipsis", lo que significa que cuando el contenido textual 
+                    "text-overflow" como "ellipsis", lo que significa que cuando el contenido textual
                     se desborde, se mostrarán 3 puntos.
                 </p>
             </div>
-            
+
             <div style="width: 100%;">
                 <div class="contenedor4">
                     CSS <br> IS AWESOME
@@ -252,8 +258,669 @@
                     contenido se desborda o no, se mostrarán scrolls o no.
                 </p>
             </div>
-            
+
         </section>
+
+        <br>
+        <br>
+
+
+        <section>
+            <header>
+                <h3>Tipos de Display</h3>
+            </header>
+
+
+            <style>
+                .contenedorB {
+                    display: block;         /*ESTA PROPIEDAD SE ENCUENTRA POR DEFECTO EN LOS DIV*/
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid black;
+                }
+
+                .contenedorB div{
+                    width: 100px;
+                    height: 100px;
+                    text-align: center;
+                    box-sizing: border-box;
+                }
+
+                .contenedorB div:first-child {
+                    background-color: rgb(36, 94, 170);
+                    border: 3px solid rgb(27, 70, 126);
+                }
+
+                .contenedorB div:not(first-child):not(last-child) {
+                    background-color: rgb(75, 72, 72);
+                    border: 3px solid rgb(51, 49, 49);
+                }
+
+                .contenedorB div:last-child {
+                    background-color: rgb(106, 26, 153);
+                    border: 3px solid rgb(80, 20, 114);
+                }
+            </style>
+
+            <article>
+                <h4>Block</h4>
+                <p>
+                    El display se puede manifestar de la siguiente manera. Como vimos anteriormente,
+                    existe el valor "inline", pero, elementos como los <b>"div"</b>, tienen el valor
+                    <b>"block"</b> por defecto.
+                    <br>
+                    El valor <b>"block"</b> lo que hace es generar saltos de línea antes y después del
+                    elemento.
+                </p>
+
+                <div class="contenedorB">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                </div>
+            </article>
+
+            <br>
+            <hr>
+
+            <style>
+                .contenedorI {
+                    display: block;         /*ESTA PROPIEDAD SE ENCUENTRA POR DEFECTO EN LOS DIV*/
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid black;
+                }
+
+                .contenedorI div{
+                    width: 100px;
+                    height: 100px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    display: inline;
+                }
+
+                .contenedorI div:nth-child(2n) {
+                    background-color: rgb(36, 94, 170);
+                    border: 3px solid rgb(27, 70, 126);
+                }
+
+                .contenedorI div:nth-child(2n+1) {
+                    background-color: rgb(106, 26, 153);
+                    border: 3px solid rgb(80, 20, 114);
+                }
+            </style>
+
+            <article>
+                <h4>Inline</h4>
+                <p>
+                    Sin embargo, si le colocamos el valor "inline", entonces la forma de mostrar los
+                    divs cambia totalmente.
+                    <br>
+                    El valor <b>"inline"</b>, a diferencia del valor <b>"block"</b>, no genera saltos
+                    de línea, sin embargo, si un elemento no cabiese en la fila, entonces se mostrará
+                    en otra línea.
+                    <br>
+                    Tampoco le afectan las propiedades como altura o ancho.
+                </p>
+
+                <div class="contenedorI">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                    <div>16</div>
+                    <div>17</div>
+                    <div>18</div>
+                    <div>19</div>
+                    <div>20</div>
+                </div>
+            </article>
+
+            <br>
+            <hr>
+
+            <style>
+                .contenedorF {
+                    display: flex;
+                    flex-direction: row;            /*VALOR POR DEFECTO*/
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border: 2px solid black;
+                }
+
+                .contenedorF div{
+                    width: 100px;
+                    height: 100px;
+                    text-align: center;
+                    box-sizing: border-box;
+                }
+
+                .contenedorF div:first-child {
+                    background-color: rgb(36, 94, 170);
+                    border: 3px solid rgb(27, 70, 126);
+                }
+
+                .contenedorF div:not(first-child):not(last-child) {
+                    background-color: rgb(75, 72, 72);
+                    border: 3px solid rgb(51, 49, 49);
+                }
+
+                .contenedorF div:last-child {
+                    background-color: rgb(106, 26, 153);
+                    border: 3px solid rgb(80, 20, 114);
+                }
+            </style>
+
+            <article>
+                <h4>Flex</h4>
+                <p>
+                    El valor <b>"flex"</b> determina el comportamiento de los elementos padre con respecto a sus
+                    hijos. Es decir, les brinda el comportamiento de un modelo "flex" a los contenedores que tengan
+                    su propiedad.
+                    <br>
+                    Vale la pena indicar que el modelo flex actua únicamente en una dimensión, en otras palabras,
+                    <b>solo puede mostrar (apilar) a sus elementos hijos o bien de manera vertical (column) o de manera
+                    horizontal (row)</b>.
+                    <br>
+                    Asimismo, en el caso de que el ancho del padre sea menor a la sumatoria de los anchos de todos
+                    los hijos, <b>el ancho de estos últimos se distribuye de forma que todos puedan ocupar el ancho
+                    total del padre</b> Esto se debe a que los elementos "flex" tienen por defecto la propiedad
+                    <b>"flex-wrap"</b> como <b>"nowrap"</b>.
+                </p>
+
+                <br>
+                Con estilo "row" (Por defecto)
+                <div class="contenedorF">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+
+                <br>
+                Con estilo "column"
+
+                <div class="contenedorF" style="flex-direction: column;">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+
+                <br>
+                Con estilo "row" pero inverso
+                <div class="contenedorF" style="flex-direction: row-reverse;">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+
+                <br>
+                Con estilo "row" pero con "flex-wrap" en "wrap".
+                <div class="contenedorF" style="flex-wrap: wrap;">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </div>
+
+                <br>
+
+                <p>
+                    Sin embargo, estas no son las únicas propiedades de los elementos flex. También existen
+                    otras que se podrían aplicar en los elementos hijos como el <b>"flex-grow"</b> (valor por
+                    defecto 0), el <b>"flex-shrink"</b> (valor por defecto 1) y el <b>"flex-basis"</b> (valor
+                    por defecto auto).
+                    <br>
+
+                </p>
+
+
+                <style>
+                    .contenedorF1 {
+                        display: flex;
+                        padding: 10px;
+                        box-sizing: border-box;
+                        border: 2px solid black;
+                    }
+
+                    .contenedorF1 div{
+                        width: 100px;
+                        height: 100px;
+                        text-align: center;
+                        box-sizing: border-box;
+
+                        flex-basis: 100px;
+                        flex-grow: 0.18;
+                    }
+
+                    .contenedorF1 div:first-child {
+                        background-color: rgb(36, 94, 170);
+                        border: 3px solid rgb(27, 70, 126);
+                    }
+
+                    .contenedorF1 div:not(first-child):not(last-child) {
+                        background-color: rgb(75, 72, 72);
+                        border: 3px solid rgb(51, 49, 49);
+                    }
+
+                    .contenedorF1 div:last-child {
+                        background-color: rgb(106, 26, 153);
+                        border: 3px solid rgb(80, 20, 114);
+                    }
+                </style>
+
+                <br>
+                <p>
+                    El <b>"flex-basis"</b> define el tamaño normal de los hijos dentro del flex.
+                    <br>
+                    El <b>"flex-grow"</b> define el porcentaje del espacio sobrante que debería de
+                    coger cada hijo en el caso de que el tamaño del padre exceda la sumatoria de las
+                    dimensiones de los hijos.
+                </p>
+
+
+                <div class="contenedorF1">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+
+                <br>
+                <p>
+                    Sin embargo, también les podríamos establecer proporciones que ayudan tanto a la reducción
+                    como extensión de los hijos.
+                    <br>
+                    Esto se logra gracias a la propiedad <b>"flex"</b>, que asigna tanto el basis, como el grow y
+                    el shrink.
+                </p>
+
+
+                <div class="contenedorF">
+                    <div style="flex: 1;">1<br>Una parte</div>
+                    <div style="flex: 2;">2<br>Dos partes</div>
+                    <div style="flex: 3;">3<br>Tres partes</div>
+                    <div style="flex: 4;">4<br>Cuatro partes</div>
+                </div>
+
+
+                <br>
+                <p>
+                    Asimismo, el flex también ofrece otra propiedad importante la cual es llamada "order".
+                    <br>
+                    El order permite poder cambiar la posición de los elementos dentro de la dimensión del contenedor.
+                </p>
+                <div class="contenedorF">
+                    <div style="flex: 1; order: 3;">1<br>Tercer orden</div>
+                    <div style="flex: 2; order: 1;">2<br>Primer orden</div>
+                    <div style="flex: 3; order: 4;">3<br>Cuarto orden</div>
+                    <div style="flex: 4; order: 2;">4<br>Segundo orden</div>
+                </div>
+
+
+                <br>
+                <p>
+                    Por otro lado, también existe una forma de poder distribuir los elementos hijos de distintas maneras
+                    y eso es utilizando la propiedad <b>"justify-content"</b>.
+                    <br>
+                </p>
+
+                <h5>justify-content: flex-start</h5>
+                <p>
+                    Es la configuración de alineación por defecto para los elementos flex.
+                </p>
+                <div class="contenedorF" style="justify-content: flex-start; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+
+                <br>
+                <h5>justify-content: flex-end</h5>
+                <p>
+                    Alinea los elementos del contenedor flex a la derecha.
+                </p>
+                <div class="contenedorF" style="justify-content: flex-end; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+
+                <br>
+                <h5>justify-content: center</h5>
+                <p>
+                    Alinea centralmente a los elementos del contenedor flex.
+                </p>
+                <div class="contenedorF" style="justify-content: center; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+                <p>
+                    Sin embargo, a este estilo también le podríamos indicar otro, el cual es denominado <b>"gap"</b>.
+                    Esta propiedad ayuda a brindar espacio entre los elementos hijos (no laterales).
+                </p>
+                <div class="contenedorF" style="justify-content: center; gap: 5px; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+
+                <br>
+                <h5>justify-content: space-around</h5>
+                <p>
+                    Brinda espacios del mismo tamaño en el eje alrededor de cada uno de los hijos.
+                </p>
+                <div class="contenedorF" style="justify-content: space-around; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+
+                <br>
+                <h5>justify-content: space-between</h5>
+                <p>
+                    Brinda espacios del mismo tamaño únicamente entre los elementos hijos.
+                </p>
+                <div class="contenedorF" style="justify-content: space-between; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+
+                <br>
+                <h5>justify-content: space-evenly</h5>
+                <p>
+                    Brinda espacios del mismo tamaño en los laterales y entre los elementos hijos.
+                </p>
+                <div class="contenedorF" style="justify-content: space-evenly; padding: 0px;">
+                    <div style="width: 70px; height: 70px;">1</div>
+                    <div style="width: 70px; height: 70px;">2</div>
+                    <div style="width: 70px; height: 70px;">3</div>
+                    <div style="width: 70px; height: 70px;">4</div>
+                </div>
+
+
+
+
+                <style>
+                    .contenedorF4 {
+                        display: flex;
+                        height: 250px;
+                        flex-wrap: wrap;            /* el flex-wrap solo crea más ejes del mismo tamaño */
+                        box-sizing: border-box;
+                        border: 2px solid black;
+                        justify-content: center;
+                        align-items: center;        /*el align-items alinea al contenido de cada línea de acuerdo al eje de cruce*/
+                        align-content: center;      /*el align-content alinea a todas las líneas con respecto al eje de cruce tal como lo hace el justify-content con el eje principal */
+                        column-gap: 50px;
+                        row-gap: 8px;
+                    }
+
+                    .contenedorF4 div{
+                        width: 50px;
+                        text-align: center;
+                        box-sizing: border-box;
+                    }
+
+                    .contenedorF4 div:first-child {
+                        height: 30px;
+                        background-color: rgb(36, 94, 170);
+                        border: 3px solid rgb(27, 70, 126);
+                    }
+
+                    .contenedorF4 div:nth-child(5),
+                    .contenedorF4 div:nth-child(7) {
+                        align-self: flex-start;     /*el align-flex sirve para poder alinear de forma personalizada a un elemento y romper el flujo */
+                        height: 20px;
+                        background-color: rgb(53, 151, 34);
+                        border: 3px solid rgb(34, 97, 22);
+                    }
+
+                    .contenedorF4 div:nth-child(6) {
+                        align-self: flex-end;       /*el align-flex sirve para poder alinear de forma personalizada a un elemento y romper el flujo */
+                        height: 20px;
+                        background-color: rgb(223, 160, 43);
+                        border: 3px solid rgb(167, 120, 33);
+                    }
+
+                    .contenedorF4 div:not(first-child):not(last-child) {
+                        background-color: rgb(75, 72, 72);
+                        height: 50px;
+                        border: 3px solid rgb(51, 49, 49);
+                    }
+
+                    .contenedorF4 div:last-child {
+                        height: 30px;
+                        background-color: rgb(106, 26, 153);
+                        border: 3px solid rgb(80, 20, 114);
+                    }
+                </style>
+                <p>
+                    Pero también existe una forma de ordenarlos con referencia al eje alterno.
+                </p>
+                <div class="contenedorF4">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                </div>
+            </article>
+
+
+            <br>
+            <hr>
+
+            <style>
+                .contenedorG {
+                    display: grid;
+                    box-sizing: border-box;
+                    border: 2px solid black;
+                    /* PARA LOS ELEMENTOS 'grid' EXISTE UNA UNIDAD ESPECIAL LLAMADA 'fracción', REPRESENTADA POR 'fr' */
+                    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));   /* ES CONVENCIONAL SOLO UTILIZAR UNA COLUMNA CON ANCHO 'auto' */
+                    grid-template-rows: 50px 40px;
+                    grid-auto-rows: 25px;
+                    /*grid-column-gap: 5px;*/
+                    /*grid-row-gap: 5px;*/
+                }
+
+                /* @media (width > 300px){
+                    .contenedorG {
+                        grid-template-columns: repeat(3, minmax(100px, 1fr));
+                    }
+                } */
+
+                .contenedorG div{
+                    text-align: center;
+                    box-sizing: border-box;
+                }
+
+                .contenedorG div:first-child {
+                    background-color: rgb(36, 94, 170);
+                    border: 3px solid rgb(27, 70, 126);
+                }
+
+                .contenedorG div:not(first-child):not(last-child) {
+                    background-color: rgb(75, 72, 72);
+                    border: 3px solid rgb(51, 49, 49);
+                }
+
+                .contenedorG div:last-child {
+                    background-color: rgb(106, 26, 153);
+                    border: 3px solid rgb(80, 20, 114);
+                }
+
+
+                /* ESTE ES UN EJEMPLO Y TAMBIÉN SIRVIÓ COMO PRÁCTICA */
+                .propiedades {
+                    display: grid;
+                    margin-bottom: 30px;
+                    overflow: auto;
+                    grid-template-columns: minmax(160px, 1fr) minmax(250px, 2fr);
+                    gap: 5px;
+                }
+
+                .propiedades div:nth-child(2n+1){
+                    font-weight: bold;
+                }
+            </style>
+
+            <article>
+                <h4>Grid</h4>
+                <p>
+                    A diferencia de flex, el <b>"grid"</b> trabaja con dos dimensiones. Esa es la gran diferencia,
+                    sin embargo, ambas formas de trabajo comparten muchas características y/o propiedades en sus
+                    estilos.
+
+                    Se tienen las siguientes características:
+                </p>
+                <div class="propiedades">
+                    <div>grid-template-columns</div>
+                    <div>Indica el número de columnas y ancho que tendría el grid.</div>
+                    <div>grid-template-rows</div>
+                    <div>Indica el alto de las "n" primeras filas.</div>
+                    <div>grid-auto-rows</div>
+                    <div>Indica el alto de las filas por defecto.</div>
+                </div>
+
+                <div class="contenedorG">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                </div>
+
+
+                <p>
+                    Sin embargo, también existen características que permiten el span de los elementos.
+                    Para simular elementos "bento".
+                    <br>
+                    Esto es posible gracias a las propiedades <b>"grid-row-start", "grid-row-end", "grid-column-start"
+                    y "grid-column-end"</b>.
+                </p>
+
+                <style>
+                    .bento {
+                        background-color: rgb(175, 173, 171);
+                        border-radius: 10px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(min(100%, max(150px, 100%/4)), 1fr));
+                        grid-auto-rows: 50px;
+                        gap: 6px;
+                    }
+
+                    .bento div {
+                        background-color: rgb(127, 129, 129);
+                        border-radius: 10px;
+                    }
+
+                    .bento div:first-child {
+                        background-color: rgb(29, 29, 119);
+                        grid-row-start: span 2;
+                        /*
+                            grid-row-start: 1;
+                            grid-row-end: 3;
+                        */
+                    }
+                </style>
+
+                <div class="bento">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                </div>
+
+
+                <style>
+                    .lashaut {
+                        display: grid;
+                        height: 400px;
+                        grid-auto-rows: 50px auto 80px;
+                        grid-template-areas:
+                            "cabecera cabecera cabecera"
+                            "menu cuerpo cuerpo"
+                            "footer footer footer";
+                    }
+
+                    .lashaut header {
+                        background-color: green;
+                        grid-area: cabecera;
+                    }
+
+                    .lashaut aside {
+                        background-color: goldenrod;
+                        grid-area: menu;
+                    }
+
+                    .lashaut main {
+                        background-color: aliceblue;
+                        grid-area: cuerpo;
+                    }
+
+                    .lashaut footer {
+                        background-color: cadetblue;
+                        grid-area: footer;
+                    }
+                </style>
+                <p>
+                    Ahora, si se necesitase construir un layout, se podría utilizar la propiedad
+                    <b>"grid-template-areas"</b>. Con la cual se pueden definir espacios de acuerdo
+                    a las áreas nombradas.
+                </p>
+                <div class="lashaut">
+                    <header>header</header>
+                    <aside>menu</aside>
+                    <main>cuerpo</main>
+                    <footer>footer</footer>
+                </div>
+
+            </article>
+
+        </section>
+
+
 
     </body>
 </html>
