@@ -4,7 +4,7 @@
 //#########################################################################################
 //#########################################################################################
 
-//* VAR
+//#region VAR
 //? FUE LA FORMA ORIGINAL PARA PODER CREAR VARIABLES
 //? PUEDE TENER UN ÁMBITO GLOBAL Y DE BLOQUE
 //? SON VARIABLES QUE PUEDEN SER DECLARADOS Y AUTOMÁTICAMENTE SON INICIALIZADOS CON "undefined"
@@ -27,10 +27,11 @@ var primeraAnomalia = "EQUIS TRES";
 console.log(primeraAnomalia);
 
 console.log("\n");
+//#endregion
 
 
 
-//* LET
+//#region LET
 //? SOLO SON ACCESIBLES DENTRO DE UN BLOQUE
 //? LAS VARIABLES LET PUEDEN SER MODIFICADAS
 let segundaVariable = "ranitas";
@@ -40,10 +41,12 @@ segundaVariable = "ranitas chotas";
 console.log(segundaVariable);
 
 console.log("\n");
+//#endregion
 
 
 
-//* CONST
+
+//#region CONST
 //? SON VARIABLES CON UN VALOR CONSTANTE, NO PUEDEN SER REASIGNADOS
 //? TIENEN QUE SER INICIALIZADOS
 //? SIN EMBARGO, ESTO NO IMPLICA QUE SEAN INMUTABLES, YA QUE, SI SE UTILIZA CON REFERENCIAS
@@ -57,3 +60,4 @@ try{
 catch(e){
     console.error("LOS CONST NO PUEDEN SER REASIGNADOS!!!")
 }
+//#endregion

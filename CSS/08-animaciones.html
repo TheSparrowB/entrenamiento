@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMACIONES</title>
+
+    <style>
+        body {
+            font-family: Inter, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <style>
+        .circulo {
+            width: 90px;
+            height: 90px;
+            border-radius: 100%;
+            background-color: rgb(69, 88, 194);
+            /* offset-x | offset-y | blur-radius | spread-radius | color */
+            box-shadow: 0px 0px 40px 30px rgb(60, 104, 199);
+            position: absolute;
+            margin: auto;
+            inset: 0px;
+        }
+
+        .circuloNormal {
+            transition: 2s;
+            transition-property: scale, background-color;
+            transition-timing-function: linear;
+        }
+
+        .circuloEaseOut {
+            transition: 3s;
+            transition-property: scale, background-color;
+            transition-timing-function: ease-out;
+        }
+
+        .circuloEaseIn {
+            transition: 3s;
+            transition-property: scale, background-color;
+            transition-timing-function: ease-in;
+        }
+
+        .circuloEaseInOut {
+            transition: 3s;
+            transition-property: scale, background-color;
+            transition-timing-function: ease-in-out;
+        }
+
+        .circuloStep5 {
+            transition: 2s;
+            transition-property: scale, background-color;
+            transition-timing-function: steps(5);
+        }
+
+        .circuloStep10 {
+            transition: 2s;
+            transition-property: scale, background-color;
+            transition-timing-function: steps(10);
+        }
+
+        .circuloBezier {
+            transition: 2s;
+            transition-property: scale, background-color;
+            transition-timing-function: cubic-bezier(.13,-1.87,.75,2.65);
+        }
+
+        .circulo:hover {
+            scale: 1.5;               /* EL "scale" SOLO AGRANDA VISUALMENTE AL ELEMENTO, PERO SUS DIMENSIONES SIGUEN SIENDO LAS MISMAS */
+            background-color: rgb(224, 141, 32);
+            box-shadow: 0px 0px 25px 15px rgb(235, 205, 38);
+        }
+
+
+        .contenedor {
+            padding: 0px 25px;
+            height: 100%;
+        }
+
+        @media(width > 520px){
+            .contenedor {
+                padding: 0px 100px;
+            }
+        }
+
+        .grilla {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, max(250px, 100%/4)), 1fr));
+            grid-auto-rows: 430px;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .grilla > div {
+            height: 100%;
+            position: relative;
+            background-color: rgb(247, 246, 246);
+            border-radius: 15px;
+            box-shadow: 10px 10px 12px rgb(189, 188, 188);
+        }
+
+        .grilla > div > hr {
+            position: absolute;
+            width: 85%;
+            top: 280px;
+            left: 7.5%;
+            border: 1px solid rgb(196, 196, 196);
+            z-index: 5;
+            margin: 0px;
+        }
+
+        .titulo {
+            height: 30px;
+            position: absolute;
+            font-weight: bolder;
+            padding: 9px 20px;
+            box-sizing: border-box;
+        }
+
+        .figura {
+            height: 250px;
+            width: 100%;
+            position: absolute;
+            text-align: center;
+            top: 30px;
+        }
+
+        .descripcion {
+            height: 150px;
+            width: 100%;
+            position: absolute;
+            top: 280px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            overflow: auto;
+        }
+
+    </style>
+
+    <section>
+        <header>
+            <h1>ANIMACIONES</h1>
+        </header>
+        <p>
+            Existen propiedades CSS que permiten la animación de los elementos HTML. Estas
+            animaciones se realizan en base a propiedades cada estilo de un elemento e incluso
+            es posible alterar a las mismas animaciones.
+        </p>
+
+        <div class="contenedor">
+            <div class="grilla">
+                <div>
+                    <div class="titulo">
+                        SIN ANIMACIÓN
+                    </div>
+                    <div class="figura">
+                        <div class="circulo"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="titulo">
+                        LINEAR
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloNormal"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 2 segundos a <strong>velocidad linear</strong>.
+                    </div>
+                </div>
+
+                <div>
+                    <div class="titulo">
+                        EASE-OUT
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloEaseOut"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 3 segundos a <strong>velocidad ease-out</strong>
+                        que empieza la animación con un velocidad más rápida y se ve haciendo lenta.
+                    </div>
+                </div>
+
+                <div>
+                    <div class="titulo">
+                        EASE-IN
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloEaseIn"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 3 segundos a <strong>velocidad ease-in</strong>
+                        que empieza la animación con un velocidad lenta y se ve haciendo rápida.
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="titulo">
+                        EASE-IN-OUT
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloEaseInOut"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 3 segundos a <strong>velocidad ease-in-out</strong>
+                        que empieza la animación con un velocidad lenta, acelera un poco y luego vuelve a
+                        hacerse lenta.
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="titulo">
+                        STEPS
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloStep5"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 2 segundos con la función <strong>steps</strong>
+                        que solo presenta 5 pasos hasta llegar al estilo final.
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="titulo">
+                        STEPS
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloStep10"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 2 segundos con la función <strong>steps</strong>
+                        que solo presenta 10 pasos hasta llegar al estilo final.
+                    </div>
+                </div>
+
+
+                <div>
+                    <div class="titulo">
+                        BEZIER
+                    </div>
+                    <div class="figura">
+                        <div class="circulo circuloBezier"></div>
+                    </div>
+                    <hr>
+                    <div class="descripcion">
+                        Cambio en el evento <strong>"hover"</strong>.
+                        <br>
+                        Con una animación de transición de 2 segundos con la función <strong>cubic-bezier</strong>.
+                        Este tipo de animación se podría customizar utilizando las herramientas del navegador.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+
+
+        También existen otras propiedades como el <strong>transition-delay</strong> que, combinados
+        con otros tipos de estilos, se podrían crear animaciones más interesantes.
+
+        <br>
+
+        <style>
+            .cajaHover {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .cajaHover > div {
+                padding: 5px 10px;
+                box-sizing: border-box;
+                flex-basis: max(150px, 50%);
+                height: 90px;
+            }
+
+            .segundo {
+                display: flex;
+                justify-content: center;
+                /* CROSS AXIS */
+                align-items: center;
+                column-gap: 10px;
+            }
+
+
+            .circulito {
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+                background-color: rgb(57, 116, 226);
+                opacity: 0;
+
+                /* property | delay | function | duration */
+                transition: opacity ease-in 2s;
+                /* transition-timing-function: ease-in;
+                transition-duration: 2s; */
+            }
+
+            .cajaHover:hover .circulito {
+                opacity: 1;
+            }
+
+            .circulito:first-child {
+                transition-delay: 0ms;
+            }
+
+            .circulito:nth-child(2){
+                transition-delay: 500ms;
+            }
+
+            .circulito:nth-child(3){
+                transition-delay: 1s;
+            }
+        </style>
+        <br>
+        <div class="cajaHover">
+            <div>
+                Puede realizar un <strong>"hover"</strong> y ver las figuras.
+            </div>
+            <div class="segundo">
+                <div class="circulito"></div>
+                <div class="circulito"></div>
+                <div class="circulito"></div>
+            </div>
+        </div>
+    </section>
+
+    <br>
+    <hr>
+
+
+    <section>
+        <header>
+            <h3>Animaciones complejas</h3>
+        </header>
+        <p>
+            También hay formas de realizar animaciones un poco más complejas, es decir, que al hacer un hover las animaciones
+            se comporten de una manera, pero al quitarle el hover, se comporte de otra distinta.
+        </p>
+
+
+        <style>
+            .sistema {
+                width: 100%;
+                height: 280px;
+                position: relative;
+                background-color: rgb(10, 19, 100);
+            }
+
+            .planeta {
+                width: 80px;
+                height: 80px;
+                border-radius: 100%;
+                background-color: rgb(207, 116, 11);
+                position: absolute;
+                margin: auto;
+                inset: 0px;
+
+                transition: box-shadow ease-in 0.5s, scale linear 0.3s;
+            }
+
+            .planeta:hover {
+                scale: 1.5;
+                box-shadow: 0 0 30px 10px rgb(206, 137, 8);
+                background: linear-gradient(0deg, rgba(180, 145, 58, 1) 0%, rgba(222, 147, 82, 1) 20%, rgb(179, 134, 76) 25%, rgb(133, 81, 39) 28%, rgb(190, 149, 87) 34%, rgba(255, 255, 255, 1) 43%, rgba(224, 186, 132, 1) 52%, rgba(230, 165, 76, 1) 73%, rgba(235, 205, 164, 1) 83%, rgba(252, 249, 242, 1) 88%, rgba(252, 176, 69, 1) 100%);
+
+                transition: all linear 1s;
+            }
+
+            /* EN EL CASO DE QUE EL USUARIO TENGA ACTIVADO UN FLAG PARA REDUCIR LAS ANIMACIONES */
+            @media(prefers-reduced-motion: reduce) {
+                .planeta {
+                    transition: none;
+                }
+            }
+        </style>
+        <div class="sistema">
+            <div class="planeta"></div>
+        </div>
+    </section>
+
+    <br>
+    <hr>
+
+
+    <section>
+        <header>
+            <h3>KEYFRAMES</h3>
+        </header>
+
+        <p>
+            Los keyframes son reglas que controlan los pasos intermedios en una animación CSS. Esto permite darle mucho
+            más control al desarrollador sobre los efectos y las animaciones que las transiciones ordinarias.
+        </p>
+
+        <style>
+            .bloque {
+                width: 100%;
+                height: 100px;
+                background-color: rgb(228, 221, 221);
+                padding: 10px;
+                box-sizing: border-box;
+            }
+
+            .nekoden {
+                width: 80px;
+                animation: ejemplo;
+                animation-duration: 3s;
+                position: relative;
+            }
+
+            .nekoden::after {
+                position: absolute;
+                content: '';
+                width: 80px;
+                height: 80px;
+                background: rgb(238, 180, 54);
+
+                opacity: 0;
+                border-radius: 50%;
+                z-index: 2;
+
+                animation: luz;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+            }
+
+            .nekoden img {
+                border-radius: 50%;
+                position: absolute;
+                z-index: 3;
+            }
+
+            @keyframes luz {
+                0% {
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 0.5;
+                    scale: 2;
+                }
+                100% {
+                    opacity: 0;
+                    scale: 1;
+                }
+            }
+
+            @keyframes ejemplo {
+                /* ESTO DEFINE EL ESTADO INICIAL */
+                from {
+                    transform: translateX(0px);
+                }
+
+                to {
+                    transform: translateX(150px);
+                }
+            }
+        </style>
+
+        <div class="bloque">
+            <div class="nekoden">
+                <img width="80px" height="80px" src="/assets/nekoarc.webp">
+            </div>
+        </div>
+
+
+        <style>
+            .nekowalk {
+                position: relative;
+            }
+
+            .nekowalk img {
+                position: absolute;
+
+                animation: caminar;
+                animation-duration: 4s;
+                animation-timing-function: ease-in-out;
+                /* animation-iteration-count: infinite; */
+                /* animation-direction: alternate-reverse; */
+
+                /* ESTO PERMITE QUE LA ANIMACIÓN NO HAGA QUE EL ELEMENTO VUELVA A SU ESTADO INICIAL */
+                animation-fill-mode: forwards;
+
+                /* CSS NESTING */
+                &:hover{
+                    animation-play-state: paused;
+                    opacity: 0.5;
+                }
+            }
+
+            @keyframes caminar {
+                0% {
+                    transform: translateX(0px);
+                }
+                100% {
+                    transform: translateX(200px);
+                }
+            }
+        </style>
+
+        <div class="nekowalk">
+            <img width="50px" height="50px" src="/assets/phone.png">
+        </div>
+    </section>
+
+</body>
+</html>
