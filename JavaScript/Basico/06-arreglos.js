@@ -15,7 +15,7 @@ console.log(segundoArreglo);
 console.log("\n");
 
 
-//? CUANDO SE USA "new" Y SOLO SE LE MANDA UN ÚNICO PARÁMETRO NUMÉRICO, EL ARREGLO PRESENTA UNA 
+//? CUANDO SE USA "new" Y SOLO SE LE MANDA UN ÚNICO PARÁMETRO NUMÉRICO, EL ARREGLO PRESENTA UNA
 //? LONGITUD CON ELEMENTOS VACÍOS
 primerArreglo = [3];
 segundoArreglo = new Array(3);
@@ -75,6 +75,8 @@ console.log(segundoArreglo);            //* VEMOS UN ARREGLO CON TRES ELEMENTOS 
 console.log("\n");
 
 
+
+
 //#region MÉTODOS COMUNES
 //? push(): agrega un elemento al último espacio del arreglo y devuelve el tamaño
 console.log("PUSH");
@@ -124,5 +126,53 @@ primerArreglo.unshift("Pinzón");
 console.log(primerArreglo);
 console.log(`Nuevo tamaño del arreglo: ${primerArreglo.unshift(Symbol("LMAO!!!"))}`);
 console.log(primerArreglo);
+
+
+
+console.log("\n");
+//? slice(): crea una copia de la porción de un arreglo dado, empezando desde una posición de origen hasta la posición final (SIN TOMAR EN CUENTA AL ÚLTIMO)
+console.log("SLICE");
+let copiaArreglo = primerArreglo.slice(2, 4);
+console.log(copiaArreglo);
+console.log(primerArreglo.slice(0, 0));
+console.log(primerArreglo.slice(0, 1));
+console.log(primerArreglo.slice(3, 4));
+console.log(primerArreglo.slice(3, 5));
+console.log(primerArreglo.slice(3, 7));
+copiaArreglo = primerArreglo.slice(0, primerArreglo.length);
+
+
+
+console.log("\n");
+//? splice(): este método elimina los elementos de un arreglo a partir de una posición dada y devuelve los elementos eliminados
+console.log("SPLICE");
+console.log("Arreglo Inicial:");
+console.log(copiaArreglo);
+let recortadoArreglo = copiaArreglo.splice(1, 3);
+console.log("Arreglo de elementos eliminados");
+console.log(recortadoArreglo);
+console.log("Arreglo recortado");
+console.log(copiaArreglo);
+
+//? También permite agregar nuevos elementos luego de haber eliminado otros
+copiaArreglo.push("Ceneula", "Pelusam", "Eclipse", "Nébulam", "Stella");
+console.log("Arreglo con nuevos elementos (CONEJOS)");
+console.log(copiaArreglo);
+copiaArreglo.splice(2, 4, "Kenyi1", "Carmelo1", "Gallineta1", "Kenyi2", "Carmelo2", "Gallineta2", "Kenyi3", "Carmelo3", "Gallineta3");
+console.log("Arreglo con todos los conejos eliminados y reemplazados con pollos");
+console.log(copiaArreglo);
+//#endregion
+
+
+
+
+
+//#region ARTIFICIOS
+console.log("\n");
+//? SI SE DESEA VACIAR UN ARREGLO, ENTONCES SOLO BASTA ASIGNARLE UN ARREGLO VACÍO
+console.log("Vaciando el primerArreglo:");
+primerArreglo = [];
+console.log(primerArreglo);
+
 
 //#endregion

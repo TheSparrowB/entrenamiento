@@ -1,0 +1,1 @@
+docker-compose -f mongodb-docker.yml up

@@ -1,0 +1,21 @@
+services:
+  mongodb:
+    image: mongo:8.3.7-noble
+    container_name: cursomongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mongodb
+      MONGO_INITDB_DATABASE: mongodb
+    volumes:
+      - cursomongo:/data/db
+    ports:
+      - "30001:27017"
+
+volumes:
+  cursomongo:
+    driver: local
+    driver_opts:
+      type: none
+      device: D:\Novo\MongoDB\datos
+      o: bind

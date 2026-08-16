@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+
+.seleccionable :hover{
+  cursor: pointer;
+  filter: brightness(1.2);
+  background-color: rgba(228, 213, 79, 0.404);
+}

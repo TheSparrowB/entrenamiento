@@ -1,0 +1,126 @@
+###################################################################################################################
+###################################################################################################################
+DOCKER
+###################################################################################################################
+###################################################################################################################
+
+docker inspect --format='{{json .(propiedad)}}' <id_o_nombre_del_objeto>
+- Sirve para brindar mayor detalle sobre algún objeto de docker, como contenedores, imágenes, redes o volúmenes.
+	--format: este argumento sirve para retornar un atributo especificado. El resultado es retornado como una línea de texto.
+	
+docker stats
+- Retorna el detalle en tiempo real de los recursos que consumen los contenedores.
+
+
+===================================================================================================================
+IMÁGENES
+===================================================================================================================
+docker images (-a ~ todos)
+- Lista las imágenes disponibles. Con el -a se listan las imágenes sin nombre también.
+
+docker rmi (-f ~ forzar) <nombre_de_la_imagen>
+- Elimina la imagen especificada solo si no existen contenedores creados a partir de la imagen.
+NOTA: no se recomienda usar f, porque docker no elimina la imagen, sino que le quita el nombre. Se recomienda seguir el proceso normal.
+
+docker build -f <nombre_del_dockerfile> -t <alias_o_nombre_de_la_imagen> <ruta_donde_se_hara_la_operacion>
+- Permite construir una imagen desde un fólder especificado a partir del archivo "Dockerfile".
+
+docker tag <nombre_y_etiqueta_actual> <nuevo_nombre_y_etiqueta_actual>
+- Crea un nuevo alias para la imagen.
+
+docker push <nombre_y_etiqueta_imagen>
+- Sube la imagen con la versión especificada al docker HUB.
+
+
+
+===================================================================================================================
+NETWORKS
+===================================================================================================================
+docker network ls (-q ~ muestra solo los id [quiet])
+- Lista todas las redes activas.
+
+docker network prune -f
+- Elimina todas las redes que no estén relacionadas a un contenedor.
+
+
+
+===================================================================================================================
+VOLUMENES
+===================================================================================================================
+docker volume ls
+- Lista los volúmenes.
+
+
+
+===================================================================================================================
+CONTENEDORES
+===================================================================================================================
+docker run --name <nombre_del_contenedor> -p <puerto_del_sistema>:<puerto_del_contenedor> (-d ~ segundo plano) <nombre_de_la_imagen>
+- Crea y corre un contenedor en segundo plano (Gracias al "-d", el cual significa "detach mode")
+
+docker ps (-a ~ todos)
+- Lista todos los contenedores corriendo, sin embargo, al usar el "-a" también se listan aquellos inactivos.
+
+docker start <nombre_del_contenedor>
+- Corre el contenedor según el nombre especificado en segundo plano, por defecto.
+
+docker stop <nombre_del_contenedor>
+- Detiene el contenedor del nombre especificado.
+
+docker rm (-f ~ forzar) <nombre_del_contenedor>
+- Elimina el contenedor solo si este no está corriendo, a no ser que se use el flag "-f".
+
+
+
+===================================================================================================================
+COMPOSE
+===================================================================================================================
+
+docker compose -f <nombre_del_archivo> up (-d ~ en segundo plano) (--build ~ para reconstruir imágenes)
+- Corre un archivo docker-compose y despliega los contenedores.
+
+docker compose down (-v ~ elimina los volumenes nombrados)
+- Elimina las redes y contenedores creados a partir del docker compose de la carpeta.
+
+docker compose ps
+- Lista los contenedores creados desde el docker compose de la carpeta.
+
+docker-compose logs (-f ~ en tiempo real)
+- Muestra los logs de los contenedores
+
+
+
+===================================================================================================================
+MISCELANEA
+===================================================================================================================
+
+uv venv 
+- Para crear un environment en la aplicación
+
+uv pip install -r requirements.txt
+- Para instalar los paquetes definidos en el "requirements" en el env
+
+
+
+
+Dudas
+¿Qué es un hipervisor?
+¿Qué es un kernel?
+
+docker compose exec -T db pg_dump -U appuser appdb > backups/appdb.sql
+
+
+¿Qué comando se debe utilizar para restaurar un respaldo SQL contenido en 
+`backups/appdb.sql` hacia la base de datos PostgreSQL activa en Compose?
+
+`docker compose exec -T db psql -U appuser appdb < backups/appdb.sql`
+
+
+Por qué es necesario utilizar el flag `-T` al ejecutar 
+`docker compose exec -T db pg_dump ...` dentro de un script de automatización?
+
+Para desactivar la asignación de un pseudo-TTY, evitando que caracteres de control 
+de consola corrompan la redirección del archivo SQL.
+
+
+Live stream: docker compose logs -f

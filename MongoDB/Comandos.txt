@@ -1,0 +1,60 @@
+mongosh 
+- Este comando ejecuta el shell de mongo para poder ejecutar otros comandos.
+
+
+
+###################################################################################################################
+###################################################################################################################
+COMANDOS DEL MONGOSH
+
+cls
+- Limpia la consola del mongosh.
+
+
+===================================================================================================================
+BASE DE DATOS
+===================================================================================================================
+
+show dbs
+- Lista todas las bases de datos
+
+use <nombre_bd>
+- Se crea una base de datos de forma temporal. La base de datos no se mostrará si este no tiene al menos una coleccion.
+
+db
+- Nos muestra el nombre de la base de datos en uso.
+
+db.dropDatabase()
+- Elimina la base de datos en uso.
+
+
+===================================================================================================================
+COLECCIONES
+===================================================================================================================
+
+show collections
+- Muestra todas las colecciones de la base de datos.
+
+db.createCollection('<nombre_de_la_coleccion>')
+- Crea una colección dentro de la base de datos.
+
+db.<nombre_de_la_coleccion>.drop()
+- Elimina la colección.
+
+
+===================================================================================================================
+DOCUMENTOS
+===================================================================================================================
+db.<nombre_de_la_coleccion>.insertOne(<JSON_del_documento>)
+- Inserta un documento en la colección específica.
+
+db.<nombre_de_la_coleccion>.find()
+- Lista todos los documentos de la colección.
+
+
+
+
+
+
+###################################################################################################################
+###################################################################################################################

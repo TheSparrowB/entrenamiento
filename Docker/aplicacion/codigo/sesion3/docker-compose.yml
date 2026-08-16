@@ -1,0 +1,41 @@
+services:
+  web:
+    container_name: servicio_web
+    image: liruliru
+    build: .
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env.example
+#    environment:
+#      - DB_HOST=${DB_HOST}
+#      - POSTGRES_DB=${POSTGRES_DB}
+#      - POSTGRES_USER=${POSTGRES_USER}
+#      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    depends_on:
+      - db
+    networks:
+      - suciam
+
+  db:
+    container_name: servicio_db
+    image: postgres:16-alpine
+    env_file:
+      - .env.example
+#    environment:
+#      POSTGRES_DB: ${POSTGRES_DB}
+#      POSTGRES_USER: ${POSTGRES_USER}
+#      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - puchaina:/var/lib/postgresql/data
+    networks:
+      - suciam
+
+volumes:
+  puchaina:
+    name: puchainaza
+
+networks:
+  suciam:
+    name: calzoncito
+    driver: bridge
