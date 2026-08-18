@@ -70,6 +70,9 @@ docker stop <nombre_del_contenedor>
 docker rm (-f ~ forzar) <nombre_del_contenedor>
 - Elimina el contenedor solo si este no está corriendo, a no ser que se use el flag "-f".
 
+docker exec (-i ~ para poder editar) (-t ~ para abrir un terminal tty) <nombre_del_contenedor> <nombre_del_programa>
+- Permite ejecutar algún comando dentro de un contenedor
+
 
 
 ===================================================================================================================

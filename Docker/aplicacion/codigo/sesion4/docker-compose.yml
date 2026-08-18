@@ -38,3 +38,4 @@ networks:
 
 volumes:
   datos_postgres:
+    name: cuarto_vl
